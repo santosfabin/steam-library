@@ -1,0 +1,83 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 1rem;
+	list-style: none;
+	text-decoration: none;
+	outline-style: none;
+	outline: none;
+	border: none;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+main {
+	display: flex;
+    justify-content: center;
+	flex-wrap: wrap;
+	gap: 25px;
+	width: 100%;
+	padding: 50px;
+}
+.container-card{
+    position: relative;
+	display: flex;
+	justify-content: center;
+}
+.card {
+    margin: 0 10px;
+	width: 200px;
+	height: 300px;
+	background-color: red;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	transition: transform 0.3s;
+	overflow: hidden;
+    box-shadow: 0 0 15px #333333;
+    cursor: pointer;
+}
+.card::before {
+	content: "";
+	background-color: #ffffff22;
+	box-shadow: 0px 0px 30px #ffffff44;
+	width: 300px;
+	height: 200px;
+	position: absolute;
+	top: -140px;
+	right: -120px;
+	transition: right 0.3s, top 0.3s, background-color 0.3s, box-shadow 0.3s;
+	transform: rotate(30deg);
+}
+.card:hover {
+	transform: perspective(500px) rotateX(5deg) scale(1.06);
+}
+.card:hover::before {
+	position: absolute;
+	right: -90px;
+	top: -60px;
+	background-color: #ffffff44;
+	box-shadow: 0px 0px 30px #ffffff88;
+}
+.horas-game {
+    position: absolute;
+    padding: 3px 10px;
+    border-radius: 3px;
+    background-color: #3d4455;
+    transform: scale(1); /* Define a escala inicial */
+    transition: transform 0.3s, bottom 0.3s; 
+    bottom: -5px;
+user-select: none;
+}
+.card:hover + .horas-game {
+    transform: scale(1.1); /* Aplica a escala quando .card é hoverizado */
+    transition: transform 0.3s, bottom 0.3s; 
+    bottom: -10px;
+}
+img{
+    width: 100%; /* ajusta a largura automaticamente */
+    object-fit: cover;
+    
+}
