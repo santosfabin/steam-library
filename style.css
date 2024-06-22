@@ -96,6 +96,7 @@ header {
 	font-size: 12px;
 	color: #8b929a;
 	cursor: pointer;
+	transition: color 0.2s;
 }
 .list .format-list li:hover {
 	color: #ddd;
@@ -114,6 +115,7 @@ header {
 	justify-content: center;
 	align-items: center;
 	border-radius: 2px;
+	transition: background 0.1s;
 }
 .campaign:hover {
 	background: #4cb0ff;
@@ -127,6 +129,7 @@ header {
 	justify-content: center;
 	align-items: center;
 	border-radius: 2px;
+	transition: background 0.1s;
 }
 .notifications:hover {
 	background: #3d4450;
@@ -141,6 +144,8 @@ header {
 	justify-content: space-between;
 	border-radius: 2px;
 	position: relative;
+	transition: background 0.1s;
+	padding-right: 3px;
 }
 .profile-card::before {
 	content: "";
@@ -153,19 +158,31 @@ header {
 	margin-left: 2px;
 }
 .profile-card:hover {
-	background: #3d4450;
+	background: #203a50;
 }
 .interrogation {
 	margin-left: 8px;
 }
-.arrow {
-	margin-right: 5px;
+.picture {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 30px;
+	cursor: pointer;
+	border-radius: 2px;
 }
-.zindex{
+.picture:hover {
+	background: #3d4450;
+}
+.picture:hover svg {
+	fill: #eee;
+}
+.zindex {
 	z-index: 50;
 }
 aside {
-	min-width: 275px;
+	width: 275px;
 	height: 100vh;
 	position: fixed;
 	border-right: 2px solid #171d25;
@@ -195,7 +212,7 @@ aside {
 .page-initial div:first-child {
 	display: flex;
 	align-items: center;
-	color: #fdfff4;
+	color: #eee;
 	padding: 10px;
 	background: linear-gradient(to right, #3e4047, #484a50);
 	height: 100%;
@@ -231,7 +248,7 @@ aside {
 	background: #fff;
 }
 .menu {
-	/* background-color: red; */
+	background: linear-gradient(15deg, #272b33, #2b3039);
 	height: 90px;
 	padding: 10px;
 	display: flex;
@@ -241,7 +258,52 @@ aside {
 }
 .menu-list {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 30px;
+}
+.games-softwares {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #25272c;
+	min-width: 200px;
+	height: 100%;
+	padding: 0 10px;
+	border-radius: 5px;
+	transition: background 0.2s;
+}
+.games-softwares:hover {
+	background: #3e4047;
+}
+.games-softwares > div {
+	transition: color 0.2s;
+}
+.games-softwares:hover > div {
+	color: #eee;
+}
+.games-softwares > svg {
+	transition: fill 0.2s;
+}
+.games-softwares:hover > svg {
+	fill: #eee;
+}
+.games-icons {
+	cursor: pointer;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+}
+.games-icons svg {
+	transition: fill 0.2s;
+}
+
+.games-icons:hover svg {
+	fill: #eee;
 }
 nav {
 	height: 280px;
@@ -293,6 +355,7 @@ main {
 	right: -120px;
 	transition: right 0.3s, top 0.3s, background-color 0.3s, box-shadow 0.3s;
 	transform: rotate(30deg);
+	z-index: 10;
 }
 .card:hover {
 	transform: perspective(500px) rotateX(5deg) scale(1.06);
@@ -303,6 +366,7 @@ main {
 	top: -60px;
 	background-color: #ffffff44;
 	box-shadow: 0px 0px 30px #ffffff88;
+	z-index: 10;
 }
 .horas-game {
 	position: absolute;
