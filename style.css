@@ -12,12 +12,17 @@
 	color: #8b929a;
 	font-size: 12px;
 }
+body,
+html {
+	overflow: hidden;
+	height: 100%;
+}
 header {
 	height: 80px;
 	width: 100vw;
 	position: fixed;
 	background-color: #171d25;
-	z-index: 1;
+	z-index: 51;
 	padding: 5px;
 	padding-right: 13px;
 }
@@ -182,15 +187,22 @@ header {
 	z-index: 50;
 }
 aside {
-	width: 275px;
-	height: 100vh;
-	position: fixed;
+	min-width: 100px;
+	max-width: 300px;
+	height: 100%;
 	border-right: 2px solid #171d25;
 
 	background-color: #272c34;
+
+	position: relative;
+}
+.aside-fixed {
+	width: 100%;
+	position: absolute;
 }
 .page-initial {
 	background: #171d25;
+	width: 100%;
 	height: 40px;
 	padding: 5px;
 	display: flex;
@@ -250,6 +262,7 @@ aside {
 .menu {
 	background: linear-gradient(15deg, #272b33, #2b3039);
 	height: 90px;
+	width: 100%;
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
@@ -269,7 +282,7 @@ aside {
 	align-items: center;
 	justify-content: space-between;
 	background-color: #25272c;
-	min-width: 200px;
+	min-width: 80%;
 	height: 100%;
 	padding: 0 10px;
 	border-radius: 5px;
@@ -317,7 +330,7 @@ aside {
 	right: 5px;
 	transition: opacity 0.2s;
 	cursor: pointer;
-    pointer-events: none;
+	pointer-events: none;
 }
 .search input {
 	width: 100%;
@@ -328,17 +341,18 @@ aside {
 	border-radius: 5px;
 	transition: background 0.1s, box-shadow 0.1s;
 }
-.search input:hover, .search input:focus {
+.search input:hover,
+.search input:focus {
 	box-shadow: inset 3px 3px 5px #151719;
 }
-.search input:hover{
+.search input:hover {
 	background: #1d2026;
 }
-.search input:focus + svg:last-child{
+.search input:focus + svg:last-child {
 	opacity: 1;
-    pointer-events: auto;
+	pointer-events: auto;
 }
-.search input + svg:last-child:hover{
+.search input + svg:last-child:hover {
 	fill: #eee;
 }
 .games-icons {
@@ -361,9 +375,29 @@ aside {
 .game-icons-list:hover {
 	background: #3e4047;
 }
+.game-list {
+	height: 100%;
+	padding-top: 130px;
+	padding-bottom: 50px;
+}
+.game-list div {
+	height: 100%;
+	overflow-y: auto;
+}
+
 nav {
 	height: 280px;
 	background: linear-gradient(to bottom, #2c323b, #171d25);
+}
+.container {
+	display: flex;
+	padding-top: 80px;
+	height: 100vh;
+}
+.mincontainer {
+	width: 100vw;
+	overflow-y: auto;
+	background-color: #2c323b;
 }
 main {
 	display: flex;
@@ -372,27 +406,19 @@ main {
 	gap: 25px;
 	width: 100%;
 	padding: 50px;
-
-	background-color: #2c323b;
-}
-.container {
-	display: flex;
-	padding-top: 80px;
-	padding-bottom: 50px;
-}
-.mincontainer {
-	padding-left: 275px;
-	overflow: hidden;
+	padding-bottom: 100px;
 }
 .container-card {
 	position: relative;
 	display: flex;
 	justify-content: center;
+	min-width: 200px;
+	min-height: 300px;
+	max-width: 200px;
+	max-height: 300px;
 }
 .card {
 	margin: 0 10px;
-	width: 200px;
-	height: 300px;
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -452,10 +478,11 @@ footer {
 	bottom: 0;
 	background: #171d25;
 	border: 1px solid #303641;
+	z-index: 51;
 }
 
 ::-webkit-scrollbar {
-	width: 8px;
+	width: 6px;
 }
 
 ::-webkit-scrollbar-track {
