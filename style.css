@@ -314,7 +314,7 @@ aside {
 	justify-content: space-between;
 	background: #24262b;
 	border-radius: 5px;
-	/* padding: 0 10px; */
+
 	height: 45%;
 	width: 100%;
 }
@@ -384,33 +384,20 @@ aside {
 	padding-top: 130px;
 	padding-bottom: 50px;
 }
-.game-list div {
+.game-list > div {
 	height: 100%;
 	overflow-y: auto;
 }
-.game-list-organize {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
 .favorite {
 	width: 100%;
-	height: 25px;
-	padding: 0 5px;
-	background: linear-gradient(to right, #2d3546, #262a3200);
+	height: 100%;
 	display: flex;
 	align-items: center;
 	cursor: pointer;
-}
-.favorite:hover {
-	background: #3e4e69;
 }
 .favorite * {
 	cursor: pointer;
-}
-.favorite div {
-	display: flex;
-	align-items: center;
+	user-select: none;
 }
 .favorite input {
 	appearance: none;
@@ -421,12 +408,23 @@ aside {
 	color: #eee;
 }
 .div-plus {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: 25px;
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+.div-plus label label {
+	color: #8b929a;
+}
+#plus {
+	height: 100%;
+	grid-column: span 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
-	width: 25px;
-	position: relative;
+	background: #2d3546;
 }
 .plus {
 	height: 2px;
@@ -437,31 +435,74 @@ aside {
 	justify-content: center;
 	align-items: center;
 	pointer-events: none;
+	margin-left: 13px;
+	margin-top: 10px;
 }
-#plus {
-	height: 100%;
-	width: 100%;
-}
+
 .plus::after {
 	display: block;
 	content: "";
 	height: 10px;
 	width: 2px;
 	background: #8499b2;
-	transition: height 0.2s;
+	transition: height 0.3s;
 }
-.div-plus:hover .plus,
-.div-plus:hover .plus::after,
-.div-plus input[type="radio"]:checked + .plus {
+.name-plus {
+	grid-column: span 6;
+	width: 100%;
+	padding-top: 5px;
+	background: linear-gradient(to right, #2d3546, #262a3200);
+	font-size: 13px;
+}
+#plus:hover ~ .plus,
+.name-plus:hover ~ .plus,g
+#plus:checked ~ .plus,
+#plus:hover ~ .plus::after,
+.name-plus:hover ~ .plus::after,
+#plus:checked ~ .plus::after {
 	background: #eee;
 }
-.div-plus input[type="radio"]:checked + .plus::after {
+.div-plus input[type="checkbox"]:checked + .plus::after {
 	content: "";
 	height: 0px;
 	width: 2px;
-	background: #eee;
 }
-
+.hidden {
+	grid-column: span 7;
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	gap: 4px;
+	overflow: hidden;
+}
+#plus ~ .hidden {
+	height: 0;
+}
+#plus:checked ~ .hidden {
+	height: 100%;
+	overflow-y: auto;
+}
+.game-list-hidden {
+	margin-top: 2px;
+	padding-left: 20px;
+	padding-right: 10px;
+	min-height: 22px;
+	max-height: 22px;
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+.game-list-hidden:hover {
+	background: #323a4b;
+}
+.game-list-hidden span {
+	font-size: 13px;
+}
+.game-list-hidden img {
+	width: 20px;
+	border-radius: 2px;
+	object-fit: cover;
+}
 nav {
 	height: 280px;
 	background: linear-gradient(to bottom, #2c323b, #171d25);
