@@ -35,17 +35,13 @@ header {
 .header-list {
 	display: flex;
 }
-.header-list ul {
-	display: flex;
-	gap: 10px;
-}
-.header-list ul li {
-	font-size: 18px;
-	color: #dcdedf;
+.header-list svg {
+	fill: #67707b;
 	cursor: pointer;
+	transition: fill 0.2s;
 }
-.header-list ul li:hover {
-	color: #fdfff4;
+.header-list svg:hover {
+	fill: #fdfff4;
 }
 #header-list-content {
 	margin-left: 10px;
@@ -103,7 +99,7 @@ header {
 	cursor: pointer;
 	transition: color 0.2s;
 }
-.list .format-list li:hover {
+.format-list li:hover {
 	color: #ddd;
 }
 .profile {
@@ -382,7 +378,7 @@ aside {
 .game-list {
 	height: 100%;
 	padding-top: 130px;
-	padding-bottom: 50px;
+	padding-bottom: 55px;
 }
 .game-list > div {
 	height: 100%;
@@ -390,7 +386,6 @@ aside {
 }
 .favorite {
 	width: 100%;
-	height: 100%;
 	display: flex;
 	align-items: center;
 	cursor: pointer;
@@ -414,11 +409,13 @@ aside {
 	height: 100%;
 	width: 100%;
 	position: relative;
+	margin-bottom: 3px;
 }
 .div-plus label label {
 	color: #8b929a;
 }
-#plus {
+#plus,
+#plus2 {
 	height: 100%;
 	grid-column: span 1;
 	display: flex;
@@ -452,14 +449,17 @@ aside {
 	width: 100%;
 	padding-top: 5px;
 	background: linear-gradient(to right, #2d3546, #262a3200);
-	font-size: 13px;
+	font-size: 12px;
 }
+.name-plus:hover ~ .plus,
+.name-plus:hover ~ .plus::after,
 #plus:hover ~ .plus,
-.name-plus:hover ~ .plus,g
 #plus:checked ~ .plus,
 #plus:hover ~ .plus::after,
-.name-plus:hover ~ .plus::after,
-#plus:checked ~ .plus::after {
+#plus:checked ~ .plus::after #plus2:hover ~ .plus,
+#plus2:checked ~ .plus,
+#plus2:hover ~ .plus::after,
+#plus2:checked ~ .plus::after {
 	background: #eee;
 }
 .div-plus input[type="checkbox"]:checked + .plus::after {
@@ -482,6 +482,13 @@ aside {
 	height: 100%;
 	overflow-y: auto;
 }
+#plus2 ~ .hidden {
+	height: 0;
+}
+#plus2:checked ~ .hidden {
+	height: 100%;
+	overflow-y: auto;
+}
 .game-list-hidden {
 	margin-top: 2px;
 	padding-left: 20px;
@@ -490,7 +497,7 @@ aside {
 	max-height: 22px;
 	display: flex;
 	align-items: center;
-	gap: 2px;
+	gap: 5px;
 }
 .game-list-hidden:hover {
 	background: #323a4b;
@@ -506,6 +513,47 @@ aside {
 nav {
 	height: 280px;
 	background: linear-gradient(to bottom, #2c323b, #171d25);
+	padding: 0 20px;
+	overflow: hidden;
+}
+.nav-header {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.nav-header div {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+.nav-header span {
+	font-size: 15px;
+	color: #ddd;
+}
+.nav-header svg {
+	fill: #67707b;
+	cursor: pointer;
+	transition: fill 0.2s;
+}
+.nav-header svg:hover {
+	fill: #fdfff4;
+}
+.nav-scroll {
+	overflow-x: scroll;
+	white-space: nowrap;
+	height: 235px;
+}
+.nav-card {
+	white-space: wrap;
+	width: 100px;
+	height: 100px;
+	background: red;
+}
+.nav-card {
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .container {
 	display: flex;
@@ -590,6 +638,7 @@ img {
 	object-fit: cover;
 }
 footer {
+	padding: 0 20px;
 	height: 50px;
 	width: 100vw;
 	position: fixed;
@@ -597,16 +646,35 @@ footer {
 	background: #171d25;
 	border: 1px solid #303641;
 	z-index: 51;
-}
 
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+footer div {
+	color: #8b929a;
+	cursor: pointer;
+	transition: color 0.2s;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+footer div span,
+footer div svg {
+	transition: color 0.2s, fill 0.2s;
+}
+footer div:hover span,
+footer div:hover svg {
+	color: #ddd;
+	fill: #ddd;
+}
 ::-webkit-scrollbar {
-	width: 6px;
+	width: 8px;
+	height: 8px;
 }
-
 ::-webkit-scrollbar-track {
 	background: #202529;
 }
-
 ::-webkit-scrollbar-thumb {
 	background: #606774;
 	border-radius: 15px;
@@ -614,4 +682,7 @@ footer {
 }
 ::-webkit-scrollbar-thumb:hover {
 	background: #7b8392;
+}
+.display-none * {
+	display: none;
 }
