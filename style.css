@@ -12,6 +12,7 @@
 	color: #8b929a;
 	font-size: 12px;
 	user-select: none;
+	scroll-behavior: smooth;
 }
 header {
 	height: 80px;
@@ -688,6 +689,40 @@ nav {
 	transition: right 0.2s;
 }
 .nav-card-img section svg:hover {
+	background: #67c1f5;
+	fill: #fff;
+}
+
+.svg-content .svg-section {
+	width: fit-content;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 5px;
+	right: 15px;
+	background: transparent;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	align-items: start;
+	border-radius: 0;
+}
+.svg-content .svg-section span {
+	background: #3d4450;
+	width: 100%;
+	padding: 10px 15px;
+}
+.svg-content .svg-section span:hover {
+	color: #555;
+	background: #dcdedf;
+}
+.svg-icon + .svg-section:hover,
+.svg-icon:hover + .svg-section {
+	height: fit-content;
+	background: transparent;
+	align-items: start;
+}
+.svg-content:hover .svg-icon{
 	background: #67c1f5;
 	fill: #fff;
 }
